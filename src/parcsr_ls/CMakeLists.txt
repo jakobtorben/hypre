@@ -62,6 +62,7 @@ set(SRCS
   par_amgdd_fac_cycle.c
   par_amgdd_setup.c
   par_amg_setup.c
+  par_amg_update.c
   par_amg_solve.c
   par_amg_solveT.c
   par_cg_relax_wt.c
@@ -161,6 +162,7 @@ if (HYPRE_USING_GPU)
     ads.c
     ame.c
     par_amg_setup.c
+    par_amg_update.c
     par_ge_device.c
     par_ilu.c
     par_ilu_setup.c

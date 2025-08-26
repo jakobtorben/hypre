@@ -94,6 +94,21 @@ HYPRE_Int HYPRE_BoomerAMGSetup(HYPRE_Solver       solver,
                                HYPRE_ParVector    x);
 
 /**
+ * Updates  the BoomerAMG solver or preconditioner.
+ * If used as a preconditioner, this function should be passed
+ * to the iterative solver \e SetPrecond function.
+ *
+ * @param solver [IN] object to be updated.
+ * @param A [IN] ParCSR matrix used to update the solver/preconditioner.
+ * @param b Ignored by this function.
+ * @param x Ignored by this function.
+ **/
+HYPRE_Int HYPRE_BoomerAMGUpdate(HYPRE_Solver       solver,
+                                 HYPRE_ParCSRMatrix A,
+                                 HYPRE_ParVector    b,
+                                 HYPRE_ParVector    x);
+
+/**
  * Solve the system or apply AMG as a preconditioner.
  * If used as a preconditioner, this function should be passed
  * to the iterative solver \e SetPrecond function.

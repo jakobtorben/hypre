@@ -57,6 +57,28 @@ HYPRE_BoomerAMGSetup( HYPRE_Solver solver,
 }
 
 /*--------------------------------------------------------------------------
+ * HYPRE_BoomerAMGUpdate
+ *--------------------------------------------------------------------------*/
+
+ HYPRE_Int
+ HYPRE_BoomerAMGUpdate( HYPRE_Solver solver,
+                       HYPRE_ParCSRMatrix A,
+                       HYPRE_ParVector b,
+                       HYPRE_ParVector x      )
+ {
+    if (!A)
+    {
+       hypre_error_in_arg(2);
+       return hypre_error_flag;
+    }
+ 
+    return ( hypre_BoomerAMGUpdate( (void *) solver,
+                                   (hypre_ParCSRMatrix *) A,
+                                   (hypre_ParVector *) b,
+                                   (hypre_ParVector *) x ) );
+ }
+
+/*--------------------------------------------------------------------------
  * HYPRE_BoomerAMGSolve
  *--------------------------------------------------------------------------*/
 
